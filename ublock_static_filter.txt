@@ -1,0 +1,80 @@
+!===============================================================
+!===================   aliexpress.ru   =========================
+!===============================================================
+! Some dom filters (use it optional)
+! aliexpress.ru##.Footer_Footer__footer__1nhxk
+! aliexpress.ru##.HotSearch_HotSearch__crossLinks__tkank
+! aliexpress.ru##[class*="MultiSidebarTab_MultiSidebarTab__sideBarContainer__"]
+! aliexpress.ru##[class*="TopBanner_TopBanner__bannerLink__"]
+! aliexpress.ru##[class*="SimilarSuggestions_SimilarSuggestions__"]
+! aliexpress.ru##[class*="SearchSeoInfo_SearchSeoInfo__seoInfo__"]
+! aliexpress.ru##[class*="InfoBanner_InfoBanner__container__"]
+! aliexpress.ru##[class*="IntroductionBannerV2_IntroductionBannerV2__container__"]
+! aliexpress.ru##.styles_bannerLink__1BJcp
+! aliexpress.ru##a[ae_button_type="detail-sns-shares"]
+! aliexpress.ru##a[href^="https://promotion.aliexpress.ru/"]
+! aliexpress.ru##div[class*="styles_topBarItemsWrap__"]:nth-of-type(2)
+! aliexpress.ru##div[class*="Popup-styles_popupWrapper__"]
+! aliexpress.ru##[class*="StoreBanner-styles_storeBanner__"]
+! aliexpress.ru##div[class*="FooterNavigation-styles_wrap__"]
+! aliexpress.ru##div[class*="styles_footer__"]
+! my.aliexpress.ru##.grid-mobile-app.grid-col-container
+! message.aliexpress.com##div.grid-col-container:nth-of-type(2)
+! my.aliexpress.com##.mobile-app.me-ui-box
+! star.aliexpress.ru##.mobile-app.me-ui-box
+! coupon.aliexpress.ru##div.grid-col-container:nth-of-type(3)
+! aliexpress.ru##.styles_body__TC7zA
+! aliexpress.ru##[class*="SnowFooter_SnowFooter"]
+! aliexpress.ru##div[class*="snow-container_SnowContainer__container__"]:has(a[href*="https://trk.mail.ru/"])
+! login.aliexpress.ru##[class*="sns_OldSns__oldWrapper__"]
+! login.aliexpress.ru##[class*="sns_OldSns__oldWrapper__"] + span
+! aliexpress.ru##.share_content
+! aliexpress.ru##[class*="ShoppingcartPaymentBanner"]
+! aliexpress.ru##[class*="ShoppingcartRecommendWrapper"]
+! aliexpress.ru##[class*="SnowCrossLinks_Category__wrapper__"]
+
+! ||*.aliexpress.ru/*/analytics.*.js
+! ||st.aliexpress.ru/mixer/ssr/1/aer-assets/ext/product-policy.*.js
+! ||g.alicdn.com/alime/dialog/alicare-dialog.js$script
+! ||st.aliexpress.ru/mixer-storage/homePage/IntroductionBannerV2_688x169.png$image
+!
+! Open link in same tabs
+aliexpress.ru##+js(ra, target, [target="_blank"], stay)
+
+! Change DOM to Fix Ugly Mobile-First Styling on Desktop
+
+aliexpress.ru##body:not([data-spm="detail"]) div[class*="product-snippet_ProductSnippet__grid__"]:style(grid-template-columns: repeat(1, 1fr) !important;)
+aliexpress.ru##body:not([data-spm="detail"]) div[class*="product-snippet_ProductSnippet__grid__"]>div[class*="product-snippet_ProductSnippet__container__"]>div[class*="product-snippet_ProductSnippet__content__"]:style(flex-direction: row !important;)
+aliexpress.ru##body:not([data-spm="detail"]) div[class*="product-snippet_ProductSnippet__grid__"]>div[class*="product-snippet_ProductSnippet__container__"]>div[class*="product-snippet_ProductSnippet__content__"]>a[class*="product-snippet_ProductSnippet__galleryBlock__"]:style(width: calc(25% - 32px) !important; margin-right: 8px !important;)
+
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] [data-spm="specifications_floor"]:upward(1):style(order: -2;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] [data-spm="description_floor"]>div[class*="snow-more-container_SnowMoreContainer__wrapper__"][style*="max-height"]:style(max-height: 80vh !important; overflow: scroll !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] [data-spm="feedback_floor"]:upward(1):style(order: 1;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] h1[class*="SnowProductDescription_ProductName__name__"]:style(font-size: 18px !important; line-height: 1.4 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[id*="SkuPropertyValue"]:style(border-radius: 0  !important;border-width: 2px  !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] span[class*="SnowProductCharacteristics_SnowProductCharacteristics__"]:style(padding: 0 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[class*="SnowProductCharacteristics_SnowProductCharacteristics__item__"]:style(border-bottom: 1px solid #686868 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] [class*="snow-ali-kit_Typography__sizeHeadingXL__"]:style(margin: 0 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] #coupon_anchor:style(margin: 0 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] #coupon_anchor:upward(3)>div[class*="snow-container_SnowContainer__container__"]:style(margin: 20px 0 !important; padding: 0 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1)+div>div>div:style(width: auto !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1):style(flex: 1 1 auto;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(2):style(max-width: 100% !important; margin: 0 !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1)+div:style(flex: 1 1 auto;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1)+div #buyNowButton div[class*="SnowFixedButtons_SnowFixedButtons__buttons__"]:style(display: flex !important; flex-direction: column; gap: 15px;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1) div[class*="gallery_Gallery__gallery__"]:style(max-height: 50vh;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1) div[class*="gallery_Gallery__picListWrapper__"]:style(padding-top: 400px !important; width: 500px !important; overflow: visible !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1) div[class*="gallery_Gallery__picListWrapper__"]:upward(1):style(overflow: hidden !important;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1) div[class*="gallery_Gallery__dots__"]:style(height: auto !important; padding: 10px !important; gap: 5px;)
+aliexpress.ru##:matches-path(/item) body[data-spm="detail"] div[data-spm="bigpic_floor"]:upward(1) div[class*="gallery_Gallery__dots__"]>div:style(cursor: pointer !important; height: 15px !important; width: 15px !important;)
+
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]:style(padding: 10px 20px !important;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div:first-child:style(display: flex; flex-wrap: wrap;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div[class*="ShoppingcartItemList_Store__storeName__"]:style(margin-bottom: 0 !important; padding-bottom: 0 !important;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div div[class*="ShoppingcartItemList_ProductCard__productMain__"]:style(display: flex; flex-direction: row; flex-wrap: wrap; align-items: center;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div div[class*="ShoppingcartItemList_ProductPrice__productPrice__"]:style(display: flex; flex: 1; margin: 0 !important; justify-content: end; align-items: center;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div div[class*="ShoppingcartItemList_ProductCard__productAttr__"]:style(width: 100%;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div div[class*="ShoppingcartItemList_ProductCard__productAttr__"]>div:style(justify-content: flex-end;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div div[class*="ShoppingcartItemList_ProductTags__tags__"]:style(margin: 0 !important;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div[class*="ShoppingcartItemList_StorePromotions__storePromotionContainer__"]:style(margin-top: 0 !important; padding-top: 0 !important; align-items: center;)
+aliexpress.ru##:matches-path(/shopcart) body[data-spm="cart"] div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"]>div>div[class*="ShoppingcartItemList_Store__buyFromSeller__"]:style(margin-top: 0 !important; padding-top: 0 !important; flex: 1 1 auto;)

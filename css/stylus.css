@@ -1,0 +1,140 @@
+@-moz-document regexp("https?://.*\\.?aliexpress\\.ru/(?!item).*") {
+div[class*="product-snippet_ProductSnippet__grid__"] {
+    grid-template-columns: repeat(1, 1fr) !important;
+}
+
+div[class*="product-snippet_ProductSnippet__grid__"] > div[class*="product-snippet_ProductSnippet__container__"] > div[class*="product-snippet_ProductSnippet__content__"] {
+    flex-direction: row !important;
+}
+
+div[class*="product-snippet_ProductSnippet__grid__"] > div[class*="product-snippet_ProductSnippet__container__"] > div[class*="product-snippet_ProductSnippet__content__"] > a[class*="product-snippet_ProductSnippet__galleryBlock__"] {
+    width: calc(25% - 32px) !important;
+    margin-right: 8px !important;
+}
+}
+
+@-moz-document url-prefix("https://aliexpress.ru/item/") {
+/* /item */
+[data-spm="description_floor"] > div[class*="snow-more-container_SnowMoreContainer__wrapper__"][style*="max-height"] {
+    max-height: 80vh !important;
+    overflow: scroll !important;
+}
+h1[class*="SnowProductDescription_ProductName__name__"] {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+}
+div[id*="SkuPropertyValue"] {
+    border-radius: 0 !important;
+    border-width: 2px !important;
+}
+span[class*="SnowProductCharacteristics_SnowProductCharacteristics__"] {
+    padding: 0 !important;
+}
+div[class*="SnowProductCharacteristics_SnowProductCharacteristics__item__"] {
+    border-bottom: 1px solid #686868 !important;
+}
+[class*="snow-ali-kit_Typography__sizeHeadingXL__"] {
+    margin: 0 !important;
+}
+#coupon_anchor {
+    margin: 0 !important;
+}
+#coupon_anchor ~ div ~ div ~ div > div[class*="snow-container_SnowContainer__container__"] {
+    margin: 20px 0 !important;
+    padding: 0 !important;
+    background: red !important;
+}
+div[data-spm="description_floor"] + div {
+    order: -2 !important;
+}
+div[data-spm="switchtabs"] + div + div > div > div:first-child {
+    order: 1;
+}
+div[data-spm="switchtabs"] + div > div {
+    flex: 1 1 auto;
+}
+div[data-spm="switchtabs"] + div > div + div {
+    flex: 1 1 auto;
+}
+
+div[data-spm="switchtabs"] + div > div + div #buyNowButton div[class*="SnowFixedButtons_SnowFixedButtons__buttons__"] {
+    display: flex !important;
+    flex-direction: column;
+    gap: 15px;
+}
+div[data-spm="switchtabs"] + div > div div[class*="gallery_Gallery__gallery__"] {
+    max-height: 50vh;
+}
+div[data-spm="switchtabs"] + div > div div[class*="gallery_Gallery__picListWrapper__"] {
+    padding-top: 400px !important;
+    width: 500px !important;
+    overflow: visible !important;
+}
+
+div[data-spm="switchtabs"] + div > div + div > div > div {
+    width: auto !important;
+}
+[data-spm="bigpic_floor"] > div > div[class*="gallery_Gallery__gallery__"] {
+    overflow: hidden !important;
+}
+div[data-spm="switchtabs"] + div > div div[class*="gallery_Gallery__dots__"] {
+    height: auto !important;
+    padding: 10px !important;
+    gap: 5px;
+}
+div[data-spm="switchtabs"] + div > div div[class*="gallery_Gallery__dots__"] > div {
+    cursor: pointer !important;
+    height: 15px !important;
+    width: 15px !important;
+}
+div[data-spm="switchtabs"] + div {
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+}
+
+@-moz-document url-prefix("https://shoppingcart.aliexpress.ru/shopcart/") {
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] {
+    padding: 10px 20px !important;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div[class*="ShoppingcartItemList_Store__storeName__"] {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div div[class*="ShoppingcartItemList_ProductCard__productMain__"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div div[class*="ShoppingcartItemList_ProductPrice__productPrice__"] {
+    display: flex;
+    flex: 1;
+    margin: 0 !important;
+    justify-content: end;
+    align-items: center;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div div[class*="ShoppingcartItemList_ProductCard__productAttr__"] {
+    width: 100%;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div div[class*="ShoppingcartItemList_ProductCard__productAttr__"] > div {
+    justify-content: flex-end;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div div[class*="ShoppingcartItemList_ProductTags__tags__"] {
+    margin: 0 !important;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div[class*="ShoppingcartItemList_StorePromotions__storePromotionContainer__"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    align-items: center;
+}
+div[class*="ShoppingcartItemList_ShoppingcartItemList__storeCollection__"] > div > div[class*="ShoppingcartItemList_Store__buyFromSeller__"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    flex: 1 1 auto;
+}
+}
